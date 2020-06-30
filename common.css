@@ -1,0 +1,40 @@
+#container {
+  display: grid;
+  grid-template-rows: minmax(400px, 1fr) 200px;
+  grid-template-columns: 150px 1fr 70px;
+  grid-template-areas: 
+    "menu main imgStack" 
+    "menu post imgStack";
+}
+
+#menu {
+  grid-area: menu;
+}
+
+#main {
+  grid-area: main;
+}
+
+#imgStack {
+  grid-area: imgStack;
+}
+
+#post {
+  grid-area: post;
+}
+
+.btn {
+  /* displayいる？ */
+  display: inline-block;
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: green;
+  padding: 20px 50px;
+  margin: 0px, 5px;
+  text-align: center;
+  color: white;
+}
+
+img#currentSSImg {
+  width: 100%;
+}
