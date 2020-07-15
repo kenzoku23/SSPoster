@@ -1,6 +1,8 @@
 //レンダラプロセス
 //開発用
 const config = require("config");
+const ssImgManager = require("./src/SSImgManager");
+const ssim = new ssImgManager();
 
 //画面のイベントはここに書く
 const chokidar = require("chokidar");
@@ -13,16 +15,11 @@ const notPostBtn = document.getElementById("notPostBtn");
 
 
 runBtn.addEventListener("click", () => {
-    chokidar.watch(`${config.filePath}/**/*.jpg`, {
+    chokidar.watch(`${config.filePath}/**/*.@(png|jpg)`, {
         ignored: "**/thumbnails/**",
         ignoreInitial : true
     }).on("add", path => {
-        //問題ない?
-        console.log(currentSSImg.src);
-        if(!currentSSImg.src){
-            console.log(path);
-            currentSSImg.src = path;
-        }
+        ssim.add(path);
     });
 });
 
@@ -31,7 +28,5 @@ postDiscordBtn.addEventListener("click", () => {
 });
 
 notPostBtn.addEventListener("click", () => {
-    //なんかHTMLのパスが入る。なんで
     currentSSImg.src = "";
-    console.log(currentSSImg.src)
 })
