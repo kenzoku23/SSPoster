@@ -16,6 +16,6 @@
   "dependencies": {
     "chokidar": "^3.4.0",
     "discord.js": "^12.2.0",
-    "electron": "^8.3.4"
+    "electron": "^8.5.1"
   }
 }
